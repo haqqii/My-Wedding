@@ -1,0 +1,36 @@
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+server.log
+npm-debug.log*
+
+# Dependencies (if using npm)
+# node_modules/
+
+# Build output (if using build tools)
+# dist/
+# build/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Playwright
+.playwright-mcp/
+
+# Temporary files
+*.tmp
+*.temp
+.cache/

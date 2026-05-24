@@ -1,0 +1,21 @@
+{
+  "name": "Undangan Pernikahan Hilda & Reza",
+  "short_name": "Hilda & Reza",
+  "description": "Undangan Pernikahan Digital - Hilda & Reza",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FAFAFE",
+  "theme_color": "#8B5CF6",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><defs><linearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' stop-color='%238B5CF6'/><stop offset='100%25' stop-color='%23A78BFA'/></linearGradient></defs><rect fill='url(%23g)' width='512' height='512' rx='64'/><text x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-size='200' font-family='serif' fill='white'>H</text><text x='50%25' y='65%25' dominant-baseline='middle' text-anchor='middle' font-size='200' font-family='serif' fill='white'>R</text></svg>",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["events", "lifestyle"],
+  "lang": "id",
+  "dir": "ltr"
+}
