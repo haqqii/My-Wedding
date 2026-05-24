@@ -1,5 +1,4 @@
-# Wedding Invitation - Hilda & Reza
-
+# Wedding Invitation
 A beautiful, elegant digital wedding invitation website featuring a Gen Z aesthetic with sage green and dark purple themes.
 
 ## Features
