@@ -472,6 +472,21 @@ document.addEventListener('DOMContentLoaded', function() {
     }, { passive: true });
     updateMusicBtnPosition();
 
+    // ==================== FLOATING NAV SCROLL FOLLOW ====================
+    const navBaseBottom = 80;
+
+    function updateFloatingNavPosition() {
+        if (!floatingNav) return;
+        const navHeight = floatingNav.offsetHeight || 60;
+        const windowHeight = window.innerHeight;
+        floatingNav.style.top = (windowHeight - navBaseBottom - navHeight + window.scrollY) + 'px';
+    }
+
+    window.addEventListener('scroll', () => {
+        updateFloatingNavPosition();
+    }, { passive: true });
+    updateFloatingNavPosition();
+
     // ==================== SERVICE WORKER ====================
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
