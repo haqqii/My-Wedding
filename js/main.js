@@ -501,7 +501,18 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('scroll', updateScrollProgress, { passive: true });
     updateScrollProgress();
 
-    // Music button is fixed position (no scroll follow)
+    // ==================== MUSIC BUTTON SCROLL FOLLOW ====================
+    const musicBtn = document.getElementById('musicBtn');
+    const musicBtnBaseY = 20;
+
+    function updateMusicBtnPosition() {
+        if (musicBtn) musicBtn.style.top = (musicBtnBaseY + window.scrollY) + 'px';
+    }
+
+    window.addEventListener('scroll', () => {
+        updateMusicBtnPosition();
+    }, { passive: true });
+    updateMusicBtnPosition();
 
     // ==================== FLOATING NAV SCROLL FOLLOW ====================
     const navBaseBottom = 80;
