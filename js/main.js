@@ -171,7 +171,7 @@ function renderUcapan() {
             <div class="ucapan-header">
                 <span class="ucapan-name">${escapeHtml(item.nama)}</span>
                 <span class="ucapan-badge ${item.kehadiran}">
-                    ${item.kehadiran === 'hadir' ? 'Hadir' : 'Tidak Hadir'} · ${item.jumlah} Org
+                    ${item.kehadiran === 'hadir' ? 'Hadir · ' + item.jumlah + ' Org' : 'Tidak Hadir'}
                 </span>
             </div>
             <p class="ucapan-text">${escapeHtml(item.ucapan) || '<i>Tidak ada ucapan</i>'}</p>
