@@ -366,6 +366,23 @@ document.addEventListener('DOMContentLoaded', function() {
     updateTimeSinceWedding();
 
     // ==================== RSVP FORM ====================
+    // ==================== TOGGLE JUMLAH TAMU ====================
+    const jumlahTamuField = document.getElementById('jumlahTamuField');
+    const kehadiranOptions = document.querySelectorAll('.kehadiran-option');
+
+    function toggleJumlahTamu() {
+        const hadirChecked = document.querySelector('input[name="kehadiran"][value="hadir"]').checked;
+        if (jumlahTamuField) {
+            jumlahTamuField.style.display = hadirChecked ? 'block' : 'none';
+        }
+    }
+
+    kehadiranOptions.forEach(option => {
+        option.addEventListener('change', toggleJumlahTamu);
+    });
+    toggleJumlahTamu(); // Initial state
+
+    // ==================== RSVP FORM ====================
     const rsvpForm = document.getElementById('rsvpForm');
     if (rsvpForm) {
         rsvpForm.addEventListener('submit', function(e) {
