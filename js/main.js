@@ -543,33 +543,4 @@ document.addEventListener('DOMContentLoaded', function() {
     //         navigator.serviceWorker.register('sw.js').then(() => {}).catch(() => {});
     //     });
     // }
-
-    // ==================== PWA INSTALL ====================
-    let deferredPrompt;
-    const installBtn = document.createElement('button');
-    installBtn.className = 'btn-primary fixed bottom-20 right-5 md:bottom-24 md:right-8 z-50';
-    installBtn.style.display = 'none';
-    installBtn.innerHTML = '<i class="ph ph-download-simple"></i><span>Install App</span>';
-    document.body.appendChild(installBtn);
-
-    window.addEventListener('beforeinstallprompt', (e) => {
-        e.preventDefault();
-        deferredPrompt = e;
-        installBtn.style.display = 'flex';
-    });
-
-    installBtn.addEventListener('click', async () => {
-        if (deferredPrompt) {
-            deferredPrompt.prompt();
-            await deferredPrompt.userChoice;
-            deferredPrompt = null;
-            installBtn.style.display = 'none';
-        }
-    });
-
-    window.addEventListener('appinstalled', () => {
-        deferredPrompt = null;
-        installBtn.style.display = 'none';
-        showToast('App berhasil diinstall!');
-    });
 });
