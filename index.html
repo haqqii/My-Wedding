@@ -823,6 +823,35 @@
                             <input type="text" name="nama" required class="rsvp-input" placeholder="Masukkan nama Anda" autocomplete="name">
                         </div>
                         <div>
+                            <label class="block font-sans text-[10px] sm:text-xs text-sage mb-1.5 sm:mb-2 uppercase tracking-wide">Konfirmasi Kehadiran *</label>
+                            <div class="grid grid-cols-2 gap-3 sm:gap-4">
+                                <label class="cursor-pointer">
+                                    <input type="radio" name="kehadiran" value="hadir" class="rsvp-radio" required>
+                                    <div class="rsvp-radio-label">
+                                        <i class="ph-fill ph-check-circle"></i>
+                                        <span>Hadir</span>
+                                    </div>
+                                </label>
+                                <label class="cursor-pointer">
+                                    <input type="radio" name="kehadiran" value="tidak_hadir" class="rsvp-radio">
+                                    <div class="rsvp-radio-label">
+                                        <i class="ph-fill ph-x-circle"></i>
+                                        <span>Tidak Hadir</span>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block font-sans text-[10px] sm:text-xs text-sage mb-1.5 sm:mb-2 uppercase tracking-wide">Jumlah Tamu</label>
+                            <select name="jumlah" class="rsvp-input">
+                                <option value="1">1 Orang</option>
+                                <option value="2">2 Orang</option>
+                                <option value="3">3 Orang</option>
+                                <option value="4">4 Orang</option>
+                                <option value="5">5 Orang</option>
+                            </select>
+                        </div>
+                        <div>
                             <label class="block font-sans text-[10px] sm:text-xs text-sage mb-1.5 sm:mb-2 uppercase tracking-wide">Ucapan & Doa</label>
                             <textarea name="ucapan" rows="3" class="rsvp-input resize-none" placeholder="Tulis ucapan dan doa untuk Hilda & Reza..."></textarea>
                         </div>
