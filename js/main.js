@@ -57,12 +57,16 @@ function openInvitation() {
         el.classList.add('active');
     });
 
+    // Play music with autoplay handling for mobile
     if (bgMusic) {
+        bgMusic.load();
         bgMusic.play().then(() => {
             const musicBtn = document.getElementById('musicBtn');
             if (musicBtn) musicBtn.classList.add('rotating');
             isPlaying = true;
-        }).catch(() => {});
+        }).catch((err) => {
+            console.log('Autoplay blocked:', err);
+        });
     }
 
     window.scrollTo(0, 0);
