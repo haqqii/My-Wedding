@@ -501,7 +501,7 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('scroll', updateScrollProgress, { passive: true });
     updateScrollProgress();
 
-    // Music button is now fixed position (like theme toggle)
+    // Music button is fixed position (no scroll follow)
 
     // ==================== FLOATING NAV SCROLL FOLLOW ====================
     const navBaseBottom = 80;
