@@ -488,6 +488,19 @@ document.addEventListener('DOMContentLoaded', function() {
         themeToggle.addEventListener('click', toggleTheme);
     }
 
+    // ==================== THEME TOGGLE SCROLL FOLLOW ====================
+    const themeToggleBtn = document.getElementById('themeToggle');
+    const themeToggleBaseY = 20;
+
+    function updateThemeTogglePosition() {
+        if (themeToggleBtn) themeToggleBtn.style.top = (themeToggleBaseY + window.scrollY) + 'px';
+    }
+
+    window.addEventListener('scroll', () => {
+        updateThemeTogglePosition();
+    }, { passive: true });
+    updateThemeTogglePosition();
+
     // ==================== SCROLL PROGRESS ====================
     const scrollProgressBar = document.getElementById('scrollProgressBar');
 
