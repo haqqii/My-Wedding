@@ -29,6 +29,18 @@ function saveData() {
 
 // ==================== GLOBAL FUNCTIONS (accessible from onclick) ====================
 
+// Add click listener to Buka Undangan button for mobile touch support
+document.addEventListener('DOMContentLoaded', function() {
+    const bukaBtn = document.querySelector('.cover-content .btn-primary');
+    if (bukaBtn) {
+        bukaBtn.addEventListener('click', openInvitation);
+        bukaBtn.addEventListener('touchend', function(e) {
+            e.preventDefault();
+            openInvitation();
+        });
+    }
+});
+
 function openInvitation() {
     const coverPage = document.getElementById('coverPage');
     const mainContent = document.getElementById('mainContent');
