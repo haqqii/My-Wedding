@@ -34,16 +34,20 @@ function openInvitation() {
     const mainContent = document.getElementById('mainContent');
     const bgMusic = document.getElementById('bgMusic');
 
-    // Force show main content immediately
+    // Force hide cover page immediately
+    coverPage.style.transition = 'none';
+    coverPage.style.opacity = '0';
+    coverPage.style.transform = 'translateY(-100%)';
+    coverPage.style.pointerEvents = 'none';
+    coverPage.style.display = 'none';
+
+    // Force show main content
     mainContent.style.opacity = '1';
     mainContent.style.visibility = 'visible';
+    mainContent.classList.remove('opacity-0');
+    document.body.classList.remove('cover-open');
     document.body.style.overflow = '';
     document.body.style.position = '';
-
-    // Hide cover page with delay for smooth transition
-    setTimeout(() => {
-        coverPage.style.display = 'none';
-    }, 100);
 
     if (bgMusic) {
         bgMusic.play().then(() => {
