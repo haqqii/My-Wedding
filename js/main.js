@@ -488,19 +488,6 @@ document.addEventListener('DOMContentLoaded', function() {
         themeToggle.addEventListener('click', toggleTheme);
     }
 
-    // ==================== THEME TOGGLE SCROLL FOLLOW ====================
-    const themeToggleBtn = document.getElementById('themeToggle');
-    const themeToggleBaseY = 20;
-
-    function updateThemeTogglePosition() {
-        if (themeToggleBtn) themeToggleBtn.style.top = (themeToggleBaseY + window.scrollY) + 'px';
-    }
-
-    window.addEventListener('scroll', () => {
-        updateThemeTogglePosition();
-    }, { passive: true });
-    updateThemeTogglePosition();
-
     // ==================== SCROLL PROGRESS ====================
     const scrollProgressBar = document.getElementById('scrollProgressBar');
 
@@ -514,18 +501,7 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('scroll', updateScrollProgress, { passive: true });
     updateScrollProgress();
 
-    // ==================== MUSIC BUTTON SCROLL FOLLOW ====================
-    const musicBtn = document.getElementById('musicBtn');
-    const musicBtnBaseY = 20;
-
-    function updateMusicBtnPosition() {
-        if (musicBtn) musicBtn.style.top = (musicBtnBaseY + window.scrollY) + 'px';
-    }
-
-    window.addEventListener('scroll', () => {
-        updateMusicBtnPosition();
-    }, { passive: true });
-    updateMusicBtnPosition();
+    // Music button is fixed position
 
     // ==================== FLOATING NAV SCROLL FOLLOW ====================
     const navBaseBottom = 80;
