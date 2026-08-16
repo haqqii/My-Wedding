@@ -1,18 +1,3 @@
-        /* ==================== ACCESSIBILITY ==================== */
-        .skip-link {
-            position: absolute;
-            top: -100px;
-            left: 0;
-            background: #4A5D4E;
-            color: white;
-            padding: 12px 24px;
-            z-index: 10000;
-            transition: top 0.3s ease;
-            font-family: 'Poppins', sans-serif;
-            font-size: 14px;
-            text-decoration: none;
-        }
-
         /* Main Content Visibility */
         #mainContent {
             opacity: 0;
@@ -35,12 +20,6 @@
         body:not(.cover-open) #mainContent {
             opacity: 1;
             visibility: visible;
-        }
-
-        .skip-link:focus {
-            top: 0;
-            outline: 3px solid #B8A88A;
-            outline-offset: 2px;
         }
 
         /* Focus styles for keyboard navigation */
