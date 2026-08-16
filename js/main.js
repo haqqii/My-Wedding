@@ -270,12 +270,12 @@ document.addEventListener('DOMContentLoaded', function() {
     if (!prefersReducedMotion) {
         gsap.utils.toArray('.reveal').forEach((element) => {
             gsap.fromTo(element,
-                { opacity: 0, y: 50, z: -30, rotateX: 10 },
+                { opacity: 0, y: 30, z: -20, rotateX: 5 },
                 {
                     opacity: 1, y: 0, z: 0, rotateX: 0,
-                    duration: 0.8,
+                    duration: 0.3,
                     ease: 'power2.out',
-                    scrollTrigger: { trigger: element, start: 'top 85%', toggleActions: 'play none none reverse' }
+                    scrollTrigger: { trigger: element, start: 'top 90%', toggleActions: 'play none none reverse' }
                 }
             );
         });
