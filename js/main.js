@@ -30,6 +30,8 @@ function saveData() {
 // ==================== GLOBAL FUNCTIONS (accessible from onclick) ====================
 
 function openInvitation() {
+    console.log('openInvitation called!');
+    alert('Button clicked!');
     const coverPage = document.getElementById('coverPage');
     const mainContent = document.getElementById('mainContent');
     const bgMusic = document.getElementById('bgMusic');
