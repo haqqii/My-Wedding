@@ -205,6 +205,37 @@ function exportUcapan() {
     showToast('Data berhasil diexport!');
 }
 
+async function shareInvitation() {
+    const shareData = {
+        title: 'Undangan Pernikahan Hilda & Reza',
+        text: 'Hilda & Reza mengundang Anda di acara pernikahan kami pada 18 & 25 Februari 2026 di Surabaya.',
+        url: window.location.href.split('?')[0]
+    };
+
+    if (navigator.share) {
+        try {
+            await navigator.share(shareData);
+            showToast('Terima kasih telah membagikan undangan!');
+        } catch (err) {
+            if (err.name !== 'AbortError') {
+                copyToClipboard(shareData.url, 'Link undangan disalin!');
+            }
+        }
+    } else {
+        copyToClipboard(shareData.url, 'Link undangan disalin!');
+    }
+}
+
+function shareToWhatsApp() {
+    const text = encodeURIComponent('Hilda & Reza mengundang Anda di acara pernikahan kami pada 18 & 25 Februari 2026. ' + window.location.href.split('?')[0]);
+    window.open(`https://wa.me/?text=${text}`, '_blank');
+}
+
+function shareToFacebook() {
+    const url = encodeURIComponent(window.location.href.split('?')[0]);
+    window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank', 'width=600,height=400');
+}
+
 // ==================== INITIALIZATION (runs after DOM is ready) ====================
 document.addEventListener('DOMContentLoaded', function() {
     let isPlaying = false;
