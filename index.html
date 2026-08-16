@@ -815,6 +815,24 @@
                     <i class="ph ph-heart text-gold text-2xl sm:text-3xl mb-6 sm:mb-8 block"></i>
                 </div>
 
+                <!-- Form Ucapan -->
+                <form id="rsvpForm" class="glass-card mb-8 sm:mb-10 reveal">
+                    <div class="space-y-4 sm:space-y-5">
+                        <div>
+                            <label class="block font-sans text-[10px] sm:text-xs text-sage mb-1.5 sm:mb-2 uppercase tracking-wide">Nama *</label>
+                            <input type="text" name="nama" required class="rsvp-input" placeholder="Masukkan nama Anda" autocomplete="name">
+                        </div>
+                        <div>
+                            <label class="block font-sans text-[10px] sm:text-xs text-sage mb-1.5 sm:mb-2 uppercase tracking-wide">Ucapan & Doa</label>
+                            <textarea name="ucapan" rows="3" class="rsvp-input resize-none" placeholder="Tulis ucapan dan doa untuk Hilda & Reza..."></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary w-full" id="submitBtn">
+                            <i class="ph-fill ph-paper-plane-right"></i>
+                            <span>Kirim Ucapan</span>
+                        </button>
+                    </div>
+                </form>
+
                 <!-- Ucapan List -->
                 <div class="reveal">
                     <div class="space-y-3 sm:space-y-4 max-h-[400px] sm:max-h-[500px] overflow-y-auto pr-1 sm:pr-2" id="ucapanList">
