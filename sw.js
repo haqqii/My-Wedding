@@ -60,22 +60,6 @@ self.addEventListener('fetch', (event) => {
             });
         })
     );
-  } else if (EXTERNAL_ASSETS.some(asset => request.url.startsWith(asset.split('/')[2]))) {
-    event.respondWith(
-      caches.match(request)
-        .then((cachedResponse) => {
-          if (cachedResponse) return cachedResponse;
-          return fetch(request)
-            .then((networkResponse) => {
-              if (networkResponse && networkResponse.status === 200) {
-                const responseClone = networkResponse.clone();
-                caches.open(CACHE_NAME)
-                  .then((cache) => cache.put(request, responseClone));
-              }
-              return networkResponse;
-            });
-        })
-    );
   }
 });
 
