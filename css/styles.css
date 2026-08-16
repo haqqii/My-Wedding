@@ -16,6 +16,13 @@
             visibility: hidden;
         }
 
+        /* Prevent scroll when cover is open */
+        body.cover-open {
+            overflow: hidden;
+            height: 100vh;
+            height: 100dvh;
+        }
+
         /* Ensure cover-open is removed when invitation opens */
         body:not(.cover-open) #mainContent {
             opacity: 1;
