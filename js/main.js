@@ -46,7 +46,7 @@ function openInvitation() {
     document.body.style.cssText = 'overflow:auto!important;position:static!important;height:auto!important';
 
     // Kill all GSAP animations
-    if (typeof gsap !== 'undefined') {
+    if (typeof gsap !== 'undefined' && gsap.kill) {
         gsap.kill();
     }
 
