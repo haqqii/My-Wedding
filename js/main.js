@@ -28,6 +28,7 @@ function saveData() {
 }
 
 // ==================== GLOBAL FUNCTIONS (accessible from onclick) ====================
+let isPlaying = false;
 
 function openInvitation() {
     const coverPage = document.getElementById('coverPage');
@@ -256,8 +257,6 @@ function shareToFacebook() {
 
 // ==================== INITIALIZATION (runs after DOM is ready) ====================
 document.addEventListener('DOMContentLoaded', function() {
-    let isPlaying = false;
-
     // ==================== GSAP ANIMATIONS ====================
     gsap.registerPlugin(ScrollTrigger);
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
