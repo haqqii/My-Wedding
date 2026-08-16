@@ -1,4 +1,4 @@
-const CACHE_NAME = 'wedding-hilda-reza-v2';
+const CACHE_NAME = 'wedding-hilda-reza-v3';
 const STATIC_ASSETS = [
   '/',
   '/index.html',
