@@ -542,11 +542,12 @@ document.addEventListener('DOMContentLoaded', function() {
     updateFloatingNavPosition();
 
     // ==================== SERVICE WORKER ====================
-    if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-            navigator.serviceWorker.register('sw.js').then(() => {}).catch(() => {});
-        });
-    }
+    // Disabled - causing issues on mobile
+    // if ('serviceWorker' in navigator) {
+    //     window.addEventListener('load', () => {
+    //         navigator.serviceWorker.register('sw.js').then(() => {}).catch(() => {});
+    //     });
+    // }
 
     // ==================== PWA INSTALL ====================
     let deferredPrompt;
