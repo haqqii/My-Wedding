@@ -325,19 +325,13 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // ==================== COUNTDOWN ====================
-    const AKAD_DATE = new Date('February 18, 2026 08:00:00').getTime();
-    const RESEPSI_DATE = new Date('February 25, 2026 18:00:00').getTime();
-    const COUNTDOWN_TARGET = Math.min(AKAD_DATE, RESEPSI_DATE);
-    const FIRST_EVENT_NAME = AKAD_DATE <= RESEPSI_DATE ? 'Akad Nikah' : 'Resepsi';
-    const FIRST_EVENT_DATE = new Date(COUNTDOWN_TARGET);
+    // ==================== TIME SINCE WEDDING ====================
+    const WEDDING_DATE = new Date('February 18, 2026 08:00:00').getTime();
 
     const dayNames = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
-    const dayName = dayNames[FIRST_EVENT_DATE.getDay()];
-    const formattedDate = `${String(FIRST_EVENT_DATE.getDate()).padStart(2, '0')} . ${String(FIRST_EVENT_DATE.getMonth() + 1).padStart(2, '0')} . ${FIRST_EVENT_DATE.getFullYear()}`;
-
-    const countdownTargetName = document.getElementById('countdownTargetName');
-    if (countdownTargetName) countdownTargetName.textContent = FIRST_EVENT_NAME;
+    const weddingDate = new Date(WEDDING_DATE);
+    const dayName = dayNames[weddingDate.getDay()];
+    const formattedDate = `${String(weddingDate.getDate()).padStart(2, '0')} . ${String(weddingDate.getMonth() + 1).padStart(2, '0')} . ${weddingDate.getFullYear()}`;
 
     const coverDayNameEl = document.getElementById('coverDayName');
     const coverDateEl = document.getElementById('coverDate');
@@ -349,27 +343,27 @@ document.addEventListener('DOMContentLoaded', function() {
     if (heroDayNameEl) heroDayNameEl.textContent = dayName;
     if (heroDateEl) heroDateEl.textContent = formattedDate;
 
-    function updateCountdown() {
+    function updateTimeSinceWedding() {
         const now = new Date().getTime();
-        const distance = COUNTDOWN_TARGET - now;
+        const elapsed = now - WEDDING_DATE;
         const days = document.getElementById('days');
         const hours = document.getElementById('hours');
         const minutes = document.getElementById('minutes');
         const seconds = document.getElementById('seconds');
 
         if (days && hours && minutes && seconds) {
-            if (distance > 0) {
-                days.textContent = String(Math.floor(distance / 86400000)).padStart(2, '0');
-                hours.textContent = String(Math.floor((distance % 86400000) / 3600000)).padStart(2, '0');
-                minutes.textContent = String(Math.floor((distance % 3600000) / 60000)).padStart(2, '0');
-                seconds.textContent = String(Math.floor((distance % 60000) / 1000)).padStart(2, '0');
+            if (elapsed > 0) {
+                days.textContent = String(Math.floor(elapsed / 86400000)).padStart(2, '0');
+                hours.textContent = String(Math.floor((elapsed % 86400000) / 3600000)).padStart(2, '0');
+                minutes.textContent = String(Math.floor((elapsed % 3600000) / 60000)).padStart(2, '0');
+                seconds.textContent = String(Math.floor((elapsed % 60000) / 1000)).padStart(2, '0');
             } else {
                 days.textContent = hours.textContent = minutes.textContent = seconds.textContent = '00';
             }
         }
     }
-    setInterval(updateCountdown, 1000);
-    updateCountdown();
+    setInterval(updateTimeSinceWedding, 1000);
+    updateTimeSinceWedding();
 
     // ==================== RSVP FORM ====================
     const rsvpForm = document.getElementById('rsvpForm');
