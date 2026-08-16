@@ -30,15 +30,20 @@ function saveData() {
 // ==================== GLOBAL FUNCTIONS (accessible from onclick) ====================
 
 function openInvitation() {
-    console.log('openInvitation called!');
-    alert('Button clicked!');
     const coverPage = document.getElementById('coverPage');
     const mainContent = document.getElementById('mainContent');
     const bgMusic = document.getElementById('bgMusic');
 
-    coverPage.classList.add('hidden');
-    mainContent.classList.remove('opacity-0');
-    document.body.classList.remove('cover-open');
+    // Force show main content immediately
+    mainContent.style.opacity = '1';
+    mainContent.style.visibility = 'visible';
+    document.body.style.overflow = '';
+    document.body.style.position = '';
+
+    // Hide cover page with delay for smooth transition
+    setTimeout(() => {
+        coverPage.style.display = 'none';
+    }, 100);
 
     if (bgMusic) {
         bgMusic.play().then(() => {
