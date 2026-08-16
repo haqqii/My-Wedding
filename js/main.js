@@ -29,37 +29,32 @@ function saveData() {
 
 // ==================== GLOBAL FUNCTIONS (accessible from onclick) ====================
 
-// Add click listener to Buka Undangan button for mobile touch support
-document.addEventListener('DOMContentLoaded', function() {
-    const bukaBtn = document.querySelector('.cover-content .btn-primary');
-    if (bukaBtn) {
-        bukaBtn.addEventListener('click', openInvitation);
-        bukaBtn.addEventListener('touchend', function(e) {
-            e.preventDefault();
-            openInvitation();
-        });
-    }
-});
-
 function openInvitation() {
     const coverPage = document.getElementById('coverPage');
     const mainContent = document.getElementById('mainContent');
     const bgMusic = document.getElementById('bgMusic');
 
-    // Force hide cover page immediately
-    coverPage.style.transition = 'none';
-    coverPage.style.opacity = '0';
-    coverPage.style.transform = 'translateY(-100%)';
-    coverPage.style.pointerEvents = 'none';
-    coverPage.style.display = 'none';
+    // COMPLETELY remove cover page from view (mobile-safe)
+    coverPage.style.cssText = 'position:absolute!important;left:-9999px!important;top:-9999px!important;width:1px!important;height:1px!important;overflow:hidden!important;pointer-events:none!important;z-index:-1!important';
 
-    // Force show main content
-    mainContent.style.opacity = '1';
-    mainContent.style.visibility = 'visible';
-    mainContent.classList.remove('opacity-0');
+    // IMMEDIATELY show main content
+    mainContent.style.cssText = 'opacity:1!important;visibility:visible!important;';
+
+    // Reset body
     document.body.classList.remove('cover-open');
-    document.body.style.overflow = '';
-    document.body.style.position = '';
+    document.body.style.cssText = 'overflow:auto!important;position:static!important;height:auto!important';
+
+    // Kill all GSAP animations
+    if (typeof gsap !== 'undefined') {
+        gsap.kill();
+    }
+
+    // Force all reveal elements to show immediately
+    document.querySelectorAll('.reveal').forEach(el => {
+        el.style.opacity = '1';
+        el.style.transform = 'none';
+        el.classList.add('active');
+    });
 
     if (bgMusic) {
         bgMusic.play().then(() => {
